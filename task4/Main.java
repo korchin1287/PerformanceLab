@@ -2,6 +2,7 @@ package task4;
 
 import task2.Rectangle;
 
+import java.io.Console;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -42,12 +43,12 @@ public class Main {
     public static void printTime(int maxValue){
         for (int j = 0; j < time.size(); j++) {
             if (time.get(j).getVisitors() == maxValue){
-                String start_h = (time.get(j).getTime() + 1) / 60 + ":";
+                String start_h = time.get(j).getTime() / 60 + ":";
                 int minute = (time.get(j).getTime() % 60);
                 String start_m = (minute == 0) ? "00" : (time.get(j).getTime() % 60) + "";
                 while (time.get(j).getVisitors() == maxValue)
                     j++;
-                String end_h = (time.get(j - 1).getTime() + 1) / 60 + ":";
+                String end_h = time.get(j).getTime() / 60 + ":";
                 minute = (time.get(j).getTime() % 60);
                 String end_m = (minute == 0) ? "00" : (time.get(j).getTime() % 60) + "";
                 System.out.println(start_h + start_m + " " + end_h + end_m);
